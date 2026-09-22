@@ -1,9 +1,9 @@
-import { mountHeader } from "./components/header.js";
+export { stateManager } from "./states-manager/index.js";
+
 import { navigateTo } from "./routes/index.js";
+import { header } from "./components/header.js";
 
 const headerDiv = document.getElementById("header");
-const header = mountHeader();
-
-headerDiv.appendChild(header);
+headerDiv.appendChild(header());
 
 await navigateTo("");

@@ -1,5 +1,5 @@
 import { title } from "../components/title";
-// import { stateManager } from "../index";
+import { stateManager } from "../index";
 
 export const renderDetailsPage = () => {
   const rootDiv = document.getElementById("view");
@@ -9,10 +9,10 @@ export const renderDetailsPage = () => {
     "Here you can just check the increased counter in the previous screen"
   );
 
-//   const counter = title(stateManager.state.counter);
+  const counter = title(stateManager.state.counter);
 
   bodyContainer.appendChild(pageTitle);
-//   bodyContainer.appendChild(counter);
+  bodyContainer.appendChild(counter);
   bodyContainer.style.cssText = `
     display: flex;
     flex-direction: column;

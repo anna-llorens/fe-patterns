@@ -1,6 +1,6 @@
 import { mountLink } from "./link.js";
 
-export const mountHeader = () => {
+export const header = () => {
   const homeLink = mountLink("Home", "home");
   const detailsLink = mountLink("Details", "detail");
 

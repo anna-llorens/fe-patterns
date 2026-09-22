@@ -1,7 +1,7 @@
 import { title } from "../components/title";
 import { button } from "../components/button";
+import { stateManager } from "../index.js";
 
-let counter = 0;
 
 export const renderHomePage = async() => {
   const rootDiv = document.getElementById("view");
@@ -9,10 +9,11 @@ export const renderHomePage = async() => {
 
   const bodyContainer = document.createElement("div");
   const pageTitle = title("Here you can increase the counter");
-  const counterLabel = title(counter);
+  const counterLabel = title(stateManager.state.counter);
+  
   const increaseCounterBtn = button("Increase", () => {
-    counter++;
-    counterLabel.innerHTML = counter;
+   stateManager.updateState({ counter: stateManager.state.counter + 1 });
+    counterLabel.innerHTML = stateManager.state.counter;
   });
 
   bodyContainer.appendChild(pageTitle);
