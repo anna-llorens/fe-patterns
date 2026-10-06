@@ -1,0 +1,19 @@
+{
+  "name": "shipments",
+  "version": "1.0.0",
+  "description": "FE architecture patterns",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve"
+  },
+  "author": "Anna Llorens",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.6.8",
+    "nodemon": "^3.1.14",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0"
+  },
+  "devDependencies": {}
+}
