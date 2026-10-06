@@ -1,12 +1,14 @@
 import { LayoutPage } from "@/components/LayoutPage";
 import { InstrumentListItem } from "@/components/InstrumentListItem";
 import { getInstrumentBySymbol } from "@/data/instruments";
+import { useInstruments } from "@/instruments/InstrumentsContext";
 import { useWatchlist } from "@/watchlist/WatchlistContext";
 
 export const WatchlistPage = () => {
   const { symbols } = useWatchlist();
+  const { instruments: all } = useInstruments();
   const instruments = symbols
-    .map((symbol) => getInstrumentBySymbol(symbol))
+    .map((symbol) => getInstrumentBySymbol(all, symbol))
     .filter((i) => i !== undefined);
 
   return (

@@ -5,6 +5,7 @@ import {
     getInstrumentDetail,
     getPriceHistory,
 } from "@/data/instruments";
+import { useInstruments } from "@/instruments/InstrumentsContext";
 import { Button } from "@/components/Button";
 import { InstrumentIcon } from "@/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
@@ -15,7 +16,8 @@ const TABS = ["Overview", "News", "Key Stats", "About"] as const;
 
 export const InstrumentPage = () => {
     const { symbol = "" } = useParams();
-    const instrument = getInstrumentDetail(symbol);
+    const { instruments, loading } = useInstruments();
+    const instrument = getInstrumentDetail(instruments, symbol);
     const [range, setRange] = useState<(typeof RANGES)[number]>("1M");
     const [tab, setTab] = useState<(typeof TABS)[number]>("Overview");
     const [expanded, setExpanded] = useState(false);
@@ -27,6 +29,16 @@ export const InstrumentPage = () => {
                 : [],
         [instrument, range],
     );
+
+    if (loading) {
+        return (
+            <div className="instrument-page">
+                <div className="instrument-page-content instrument-not-found">
+                    <p>Loading…</p>
+                </div>
+            </div>
+        );
+    }
 
     if (!instrument) {
         return (

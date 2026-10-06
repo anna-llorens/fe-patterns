@@ -4,10 +4,12 @@ import { AppLayout } from "./layouts/AppLayout";
 import { DashboardPage } from "./pages/DashboardPage";
 import { InstrumentPage } from "./pages/InstrumentPage";
 import { WatchlistPage } from "./pages/WatchlistPage";
+import { InstrumentsProvider } from "./instruments/InstrumentsContext";
 import { WatchlistProvider } from "./watchlist/WatchlistContext";
 
 function App() {
   return (
+    <InstrumentsProvider>
     <WatchlistProvider>
       <BrowserRouter>
         <Routes>
@@ -19,6 +21,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </WatchlistProvider>
+    </InstrumentsProvider>
   );
 }
 

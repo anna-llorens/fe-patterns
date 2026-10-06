@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { InstrumentListItem } from "@/components/InstrumentListItem";
-import { instruments, type Instrument } from "@/data/instruments";
+import { type Instrument } from "@/data/instruments";
+import { useInstruments } from "@/instruments/InstrumentsContext";
 import "@/search.css";
 
 const TOP_N = 3;
@@ -10,7 +11,10 @@ const RECENT_KEY = "fe-patterns-recent-searches";
 const DEFAULT_TOP_SYMBOLS = ["AAPL", "TSLA", "MSFT"];
 const DEFAULT_RECENT = ["AAPL", "TSLA", "NVDA", "MSFT", "GOOGL"];
 
-function matchInstruments(query: string): Instrument[] {
+function matchInstruments(
+  instruments: Instrument[],
+  query: string,
+): Instrument[] {
   const term = query.trim().toLowerCase();
   if (!term) return [];
 
@@ -38,23 +42,27 @@ function saveRecent(symbols: string[]) {
   localStorage.setItem(RECENT_KEY, JSON.stringify(symbols.slice(0, 8)));
 }
 
-function topResultsForQuery(query: string): Instrument[] {
+function topResultsForQuery(
+  instruments: Instrument[],
+  query: string,
+): Instrument[] {
   if (!query.trim()) {
     return DEFAULT_TOP_SYMBOLS.map((symbol) =>
       instruments.find((i) => i.symbol === symbol),
     ).filter((i): i is Instrument => i !== undefined);
   }
-  return matchInstruments(query);
+  return matchInstruments(instruments, query);
 }
 
 export const Search = () => {
+  const { instruments } = useInstruments();
   const shellRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [recent, setRecent] = useState(loadRecent);
 
-  const allResults = topResultsForQuery(query);
+  const allResults = topResultsForQuery(instruments, query);
   const visibleResults = showAll ? allResults : allResults.slice(0, TOP_N);
   const trimmedQuery = query.trim();
 

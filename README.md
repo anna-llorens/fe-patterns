@@ -1,6 +1,13 @@
 # fe-patterns
 
-Frontend architecture patterns — React + TypeScript starter (Vite).
+React frontend + TypeScript API for instrument patterns demo.
+
+## Layout
+
+```text
+frontend/   Vite + React
+backend/    Express, GET /api/instruments (fake data → Twelve Data later)
+```
 
 ## Prerequisites
 
@@ -13,24 +20,25 @@ Frontend architecture patterns — React + TypeScript starter (Vite).
 yarn install
 ```
 
-## Scripts
+## Dev
 
-| Command         | Description              |
-| --------------- | ------------------------ |
-| `yarn dev`      | Start dev server + HMR   |
-| `yarn build`    | Typecheck and production build |
-| `yarn preview`  | Preview production build |
-| `yarn lint`     | Run ESLint               |
+Terminal 1 — API (port 3001):
 
-## Project layout
-
-```text
-src/
-  components/   # shared UI (placeholder)
-  pages/        # route-level views (placeholder)
-  types/        # shared TypeScript types (placeholder)
-  App.tsx       # root component
-  main.tsx      # entry point
+```bash
+yarn dev:backend
 ```
 
-Path alias: `@/` → `src/` (see `vite.config.ts` and `tsconfig.app.json`).
+Terminal 2 — UI (proxies `/api` to the backend):
+
+```bash
+yarn dev:frontend
+```
+
+## Scripts (root)
+
+| Command            | Description        |
+| ------------------ | ------------------ |
+| `yarn dev:frontend`| Vite dev server    |
+| `yarn dev:backend` | API with hot reload |
+| `yarn build`       | Build both workspaces |
+| `yarn lint`        | ESLint (frontend)  |
