@@ -1,0 +1,172 @@
+.instrument-page {
+  --ip-bg: #0b0f14;
+  --ip-surface: #151b23;
+  --ip-surface-soft: #1c2430;
+  --ip-text: #e2e8f0;
+  --ip-muted: #94a3b8;
+  --ip-border: #2a3441;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  text-align: left;
+  background: var(--ip-bg);
+  color: var(--ip-text);
+  padding: 28px 32px 40px;
+}
+
+.instrument-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instrument-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 0;
+  background: none;
+  color: var(--ip-muted);
+  font-size: 14px;
+}
+
+.instrument-back:hover {
+  color: var(--ip-text);
+  transform: none;
+}
+
+.instrument-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.instrument-identity {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.instrument-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.instrument-subtitle {
+  margin: 4px 0 0;
+  color: var(--ip-muted);
+  font-size: 14px;
+}
+
+.instrument-meta {
+  margin: 2px 0 0;
+  color: var(--ip-muted);
+  font-size: 13px;
+}
+
+.instrument-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instrument-price-block {
+  margin-bottom: 20px;
+}
+
+.instrument-price {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.instrument-change {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.instrument-ranges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.price-chart {
+  width: 100%;
+  height: min(36vh, 320px);
+  min-height: 220px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.price-chart-grid {
+  stroke: var(--ip-border);
+  stroke-dasharray: 4 4;
+  stroke-width: 1;
+}
+
+.price-chart-label {
+  fill: var(--ip-muted);
+  font-size: 11px;
+}
+
+.instrument-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--ip-surface);
+  border: 1px solid var(--ip-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.stat-label {
+  margin: 0;
+  color: var(--ip-muted);
+  font-size: 13px;
+}
+
+.stat-value {
+  margin: 6px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.instrument-tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--ip-border);
+  margin-bottom: 16px;
+}
+
+.instrument-overview {
+  margin: 0;
+  color: var(--ip-muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.instrument-not-found {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+@media (max-width: 720px) {
+  .instrument-header {
+    flex-direction: column;
+  }
+
+  .instrument-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

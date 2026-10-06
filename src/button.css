@@ -1,0 +1,137 @@
+.btn {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn--primary {
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  background: var(--primary);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn--secondary {
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.btn--secondary:hover {
+  filter: brightness(1.08);
+}
+
+.btn--danger {
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  background: var(--danger);
+  color: white;
+}
+
+.btn--pill {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.btn--pill:hover {
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.btn--pill.btn--active {
+  background: var(--primary);
+  color: white;
+}
+
+.instrument-page .btn--pill {
+  color: var(--ip-muted);
+}
+
+.instrument-page .btn--pill:hover {
+  background: var(--ip-surface-soft);
+  color: var(--ip-text);
+}
+
+.instrument-page .btn--pill.btn--active {
+  background: var(--primary);
+  color: white;
+}
+
+.btn--tab {
+  padding: 0 0 12px;
+  margin-bottom: -1px;
+  background: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.btn--tab:hover {
+  color: var(--text);
+}
+
+.btn--tab.btn--active {
+  color: var(--text);
+  border-bottom-color: var(--primary);
+}
+
+.instrument-page .btn--tab {
+  color: var(--ip-muted);
+}
+
+.instrument-page .btn--tab:hover {
+  color: var(--ip-text);
+}
+
+.instrument-page .btn--tab.btn--active {
+  color: var(--ip-text);
+}
+
+.btn--ghost {
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.btn--link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 0;
+  background: none;
+  color: #60a5fa;
+  font-size: 13px;
+  text-align: left;
+}
+
+.btn--link:hover {
+  text-decoration: underline;
+}
+
+.btn--chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.btn--chip:hover {
+  border-color: #475569;
+  background: #1e293b;
+}

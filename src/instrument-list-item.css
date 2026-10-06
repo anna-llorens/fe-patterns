@@ -1,0 +1,122 @@
+.instrument-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.instrument-list-item-link {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.instrument-list-item--with-sector .instrument-list-item-link {
+  grid-template-columns: auto 1.5fr 1fr auto;
+}
+
+.instrument-list-item-link:hover {
+  background: var(--surface-soft);
+}
+
+.instrument-list-item--search .instrument-list-item-link:hover {
+  background: #1e293b;
+}
+
+.instrument-list-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.instrument-list-item-symbol {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.instrument-list-item-name {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.instrument-list-item-sector {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.instrument-list-item-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.instrument-list-item-price {
+  font-weight: 600;
+}
+
+.instrument-list-item-star {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.instrument-list-item-star:hover {
+  transform: none;
+  color: var(--text);
+}
+
+.instrument-list-item-star.active {
+  color: #fbbf24;
+}
+
+.instrument-list-item-star--header {
+  width: 40px;
+  height: 40px;
+}
+
+.instrument-page .instrument-list-item-star--header {
+  background: var(--ip-surface-soft);
+  color: var(--ip-muted);
+}
+
+.instrument-page .instrument-list-item-star--header:hover {
+  color: var(--ip-text);
+}
+
+.instrument-page .instrument-list-item-star--header.active,
+.instrument-page .instrument-list-item-star--header.active:hover {
+  color: #fbbf24;
+}
+
+.instrument-list .instrument-list-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.instrument-list .instrument-list-item:last-child {
+  border-bottom: none;
+}
+
+.instrument-list {
+  padding: 8px 12px;
+}
+
+.instrument-list .instrument-list-item-link {
+  padding: 12px 8px;
+}

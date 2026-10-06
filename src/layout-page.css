@@ -1,0 +1,31 @@
+.layout-page {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.layout-page--default {
+  max-width: 1280px;
+}
+
+.layout-page--narrow {
+  max-width: 720px;
+}
+
+.layout-page-title {
+  margin: 0 0 24px;
+  font-size: 28px;
+}
+
+.layout-page-section {
+  margin-top: 8px;
+}
+
+.layout-page-section-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.layout-page-muted {
+  color: var(--text-muted);
+}

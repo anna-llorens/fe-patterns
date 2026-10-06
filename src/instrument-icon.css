@@ -1,0 +1,36 @@
+.instrument-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.instrument-icon--list {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.instrument-icon--detail {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.instrument-icon--tone-default {
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.instrument-icon--tone-search {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.instrument-icon--tone-detail {
+  background: var(--ip-surface-soft, var(--surface-soft));
+  color: var(--ip-text, var(--text));
+}
