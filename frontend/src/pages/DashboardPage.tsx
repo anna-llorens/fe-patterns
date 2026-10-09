@@ -1,4 +1,4 @@
-import { InstrumentListItem } from "@/components/InstrumentListItem";
+import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { LayoutPage, LayoutPageSection } from "@/components/LayoutPage";
 import { useInstruments } from "@/instruments/InstrumentsContext";
 

@@ -142,13 +142,6 @@
   font-weight: 600;
 }
 
-.instrument-tabs {
-  display: flex;
-  gap: 20px;
-  border-bottom: 1px solid var(--ip-border);
-  margin-bottom: 16px;
-}
-
 .instrument-overview {
   margin: 0;
   color: var(--ip-muted);
@@ -162,11 +155,39 @@
 }
 
 @media (max-width: 720px) {
+  .instrument-page {
+    padding: 20px 16px 32px;
+    min-height: 0;
+  }
+
   .instrument-header {
     flex-direction: column;
   }
 
+  .instrument-title {
+    font-size: 22px;
+  }
+
+  .instrument-price {
+    font-size: 28px;
+  }
+
   .instrument-stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 480px) {
+  .instrument-page {
+    padding: 16px 12px 24px;
+  }
+
+  .instrument-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .instrument-ranges {
+    gap: 4px;
   }
 }

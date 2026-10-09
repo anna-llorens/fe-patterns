@@ -1,35 +1,52 @@
-import { useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { PriceChart } from "@/components/PriceChart";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { PriceChart } from "@/instruments/components/PriceChart";
 import {
     getInstrumentDetail,
-    getPriceHistory,
 } from "@/data/instruments";
 import { useInstruments } from "@/instruments/InstrumentsContext";
-import { Button } from "@/components/Button";
-import { InstrumentIcon } from "@/components/InstrumentIcon";
+import { ExpandableText } from "@/components/ExpandableText";
+import { Tabs } from "@/components/Tabs";
+import { InstrumentIdentity } from "@/instruments/components/InstrumentIdentity";
+import { PriceBlock } from "@/instruments/components/PriceBlock";
+import { StatCard } from "@/instruments/components/StatCard";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
 import "@/instrument-page.css";
+import type { InstrumentDetail } from "@/instruments/model/Instrument";
 
-const RANGES = ["1D", "1W", "1M", "3M", "1Y", "5Y", "ALL"] as const;
 const TABS = ["Overview", "News", "Key Stats", "About"] as const;
+
+const TAB_FIELD = {
+  Overview: "overview",
+  News: "news",
+  "Key Stats": "keyStats",
+  About: "about",
+} as const;
+
+const STATS: {
+  label: string;
+  getValue: (instrument: InstrumentDetail) => string;
+}[] = [
+  { label: "Market Cap", getValue: (i) => i.marketCap },
+  { label: "P/E Ratio", getValue: (i) => i.peRatio.toFixed(1) },
+  {
+    label: "Dividend Yield",
+    getValue: (i) => `${i.dividendYield.toFixed(2)}%`,
+  },
+  { label: "52W High", getValue: (i) => i.week52High.toFixed(2) },
+  { label: "52W Low", getValue: (i) => i.week52Low.toFixed(2) },
+  { label: "Volume", getValue: (i) => i.volume },
+];
 
 export const InstrumentPage = () => {
     const { symbol = "" } = useParams();
     const { instruments, loading } = useInstruments();
+
     const instrument = getInstrumentDetail(instruments, symbol);
-    const [range, setRange] = useState<(typeof RANGES)[number]>("1M");
+
     const [tab, setTab] = useState<(typeof TABS)[number]>("Overview");
-    const [expanded, setExpanded] = useState(false);
 
-    const prices = useMemo(
-        () =>
-            instrument
-                ? getPriceHistory(instrument.symbol, range, instrument.price)
-                : [],
-        [instrument, range],
-    );
-
+    // Loading state
     if (loading) {
         return (
             <div className="instrument-page">
@@ -40,41 +57,14 @@ export const InstrumentPage = () => {
         );
     }
 
-    if (!instrument) {
-        return (
-            <div className="instrument-page">
-                <div className="instrument-page-content instrument-not-found">
-                    <p>Instrument not found.</p>
-                    <Link to="/">Back to search</Link>
-                </div>
-            </div>
-        );
-    }
-
     const positive = instrument.dailyChange >= 0;
 
     return (
         <div className="instrument-page">
             <div className="instrument-page-content">
-                {/* <Link to="/" className="instrument-back">
-        ← Back to search results
-      </Link> */}
 
                 <header className="instrument-header">
-                    <div className="instrument-identity">
-                        <InstrumentIcon
-                            symbol={instrument.symbol}
-                            size="detail"
-                            tone="detail"
-                        />
-                        <div>
-                            <h1 className="instrument-title">{instrument.symbol}</h1>
-                            <p className="instrument-subtitle">{instrument.name}</p>
-                            <p className="instrument-meta">
-                                {instrument.exchange} · USD · {instrument.sector}
-                            </p>
-                        </div>
-                    </div>
+                    <InstrumentIdentity instrument={instrument} />
                     <div className="instrument-actions">
                         <WatchlistStarButton
                             symbol={instrument.symbol}
@@ -83,88 +73,34 @@ export const InstrumentPage = () => {
                     </div>
                 </header>
 
-                <div className="instrument-price-block">
-                    <p className="instrument-price">${instrument.price.toFixed(2)}</p>
-                    <p className={`instrument-change ${positive ? "positive" : "negative"}`}>
-                        {positive ? "+" : ""}
-                        {instrument.dailyChange.toFixed(2)} ({positive ? "+" : ""}
-                        {instrument.dailyChangePercent.toFixed(2)}%)
-                    </p>
-                </div>
+                <PriceBlock instrument={instrument} />
 
-                <div className="instrument-ranges">
-                    {RANGES.map((r) => (
-                        <Button
-                            key={r}
-                            variant="pill"
-                            active={range === r}
-                            onClick={() => setRange(r)}
-                        >
-                            {r}
-                        </Button>
-                    ))}
-                </div>
-
-                <PriceChart prices={prices} positive={positive} />
+                <PriceChart
+                    symbol={instrument.symbol}
+                    price={instrument.price}
+                    positive={positive}
+                />
 
                 <div className="instrument-stats">
-                    <div className="stat-card">
-                        <p className="stat-label">Market Cap</p>
-                        <p className="stat-value">{instrument.marketCap}</p>
-                    </div>
-                    <div className="stat-card">
-                        <p className="stat-label">P/E Ratio</p>
-                        <p className="stat-value">{instrument.peRatio.toFixed(1)}</p>
-                    </div>
-                    <div className="stat-card">
-                        <p className="stat-label">Dividend Yield</p>
-                        <p className="stat-value">{instrument.dividendYield.toFixed(2)}%</p>
-                    </div>
-                    <div className="stat-card">
-                        <p className="stat-label">52W High</p>
-                        <p className="stat-value">{instrument.week52High.toFixed(2)}</p>
-                    </div>
-                    <div className="stat-card">
-                        <p className="stat-label">52W Low</p>
-                        <p className="stat-value">{instrument.week52Low.toFixed(2)}</p>
-                    </div>
-                    <div className="stat-card">
-                        <p className="stat-label">Volume</p>
-                        <p className="stat-value">{instrument.volume}</p>
-                    </div>
-                </div>
-
-                <div className="instrument-tabs">
-                    {TABS.map((t) => (
-                        <Button
-                            key={t}
-                            variant="tab"
-                            active={tab === t}
-                            onClick={() => setTab(t)}
-                        >
-                            {t}
-                        </Button>
+                    {STATS.map(({ label, getValue }) => (
+                        <StatCard
+                            key={label}
+                            label={label}
+                            value={getValue(instrument)}
+                        />
                     ))}
                 </div>
 
-                {tab === "Overview" && (
-                    <>
-                        <p className="instrument-overview">
-                            {expanded
-                                ? instrument.overview
-                                : `${instrument.overview.slice(0, 120)}…`}
-                        </p>
-                        <Button
-                            variant="ghost"
-                            onClick={() => setExpanded((v) => !v)}
-                        >
-                            {expanded ? "Show less" : "Show more ⌄"}
-                        </Button>
-                    </>
-                )}
-                {tab !== "Overview" && (
-                    <p className="instrument-overview">Demo content for {tab}.</p>
-                )}
+                <Tabs
+                    items={TABS} 
+                    value={tab}
+                    onChange={setTab}
+                    aria-label="Instrument details"
+                />
+                <ExpandableText
+                    className="instrument-overview"
+                    text={instrument[TAB_FIELD[tab]]}
+                />
             </div>
         </div>
     );

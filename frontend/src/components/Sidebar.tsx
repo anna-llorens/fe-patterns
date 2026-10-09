@@ -11,11 +11,11 @@ export const Sidebar = () => {
       <span className="app-brand-name">StockTrack</span>
     </div>
     <nav className="app-nav" aria-label="Main">
-      <AppNavLink to="/" end>
-        Dashboard
+      <AppNavLink to="/" end title="Dashboard">
+        <span className="app-nav-label">Dashboard</span>
       </AppNavLink>
-      <AppNavLink to="/watchlist" badge={symbols.length}>
-        Watchlist
+      <AppNavLink to="/watchlist" badge={symbols.length} title="Watchlist">
+        <span className="app-nav-label">Watchlist</span>
       </AppNavLink>
     </nav>
   </aside>

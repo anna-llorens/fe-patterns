@@ -1,5 +1,5 @@
 import { LayoutPage } from "@/components/LayoutPage";
-import { InstrumentListItem } from "@/components/InstrumentListItem";
+import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { getInstrumentBySymbol } from "@/data/instruments";
 import { useInstruments } from "@/instruments/InstrumentsContext";
 import { useWatchlist } from "@/watchlist/WatchlistContext";

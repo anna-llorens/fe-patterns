@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.instrument-page .tabs {
+  border-bottom-color: var(--ip-border);
+}
+
+@media (max-width: 720px) {
+  .tabs {
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

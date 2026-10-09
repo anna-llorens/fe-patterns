@@ -1,16 +1,28 @@
 .app-shell {
+  --sidebar-width: 220px;
+
+  width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  overflow-x: clip;
 }
 
 .app-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100vh;
+  height: 100dvh;
   padding: 24px 16px;
   background: #0f172a;
   border-right: 1px solid var(--border);
+  overflow-y: auto;
 }
 
 .app-brand {
@@ -93,21 +105,62 @@
 
 .app-main {
   flex: 1;
+  min-width: 0;
 }
 
 @media (max-width: 900px) {
   .app-shell {
-    grid-template-columns: 1fr;
+    --sidebar-width: 76px;
   }
 
   .app-sidebar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
+    align-items: stretch;
+    padding: 16px 8px;
   }
 
-  .app-nav {
-    flex-direction: row;
+  .app-brand {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .app-brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .app-nav-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 6px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .app-nav-badge {
+    margin-left: 0;
+  }
+
+  .app-header {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    --sidebar-width: 68px;
+  }
+
+  .app-nav-link {
+    font-size: 10px;
+    padding: 8px 4px;
   }
 }

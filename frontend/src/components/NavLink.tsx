@@ -6,6 +6,7 @@ type AppNavLinkProps = {
   children: ReactNode;
   end?: boolean;
   badge?: number;
+  title?: string;
 };
 
 export const AppNavLink = ({
@@ -13,10 +14,12 @@ export const AppNavLink = ({
   children,
   end,
   badge,
+  title,
 }: AppNavLinkProps) => (
   <NavLink
     to={to}
     end={end}
+    title={title}
     className={({ isActive }) => `app-nav-link${isActive ? " active" : ""}`}
   >
     {children}

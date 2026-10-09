@@ -120,3 +120,17 @@
 .instrument-list .instrument-list-item-link {
   padding: 12px 8px;
 }
+
+@media (max-width: 640px) {
+  .instrument-list-item--with-sector .instrument-list-item-sector {
+    display: none;
+  }
+
+  .instrument-list-item--with-sector .instrument-list-item-link {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .instrument-list-item-quote {
+    font-size: 12px;
+  }
+}

@@ -29,3 +29,24 @@
 .layout-page-muted {
   color: var(--text-muted);
 }
+
+@media (max-width: 900px) {
+  .layout-page {
+    padding: 1.25rem 1rem;
+  }
+
+  .layout-page-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-page {
+    padding: 1rem 0.75rem;
+  }
+
+  .layout-page-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}

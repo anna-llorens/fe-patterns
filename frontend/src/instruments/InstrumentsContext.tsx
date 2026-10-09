@@ -5,7 +5,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Instrument } from "@/data/instruments";
+import type { Instrument } from "@/instruments/model/Instrument";
 
 type InstrumentsContextValue = {
   instruments: Instrument[];

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
-import { InstrumentListItem } from "@/components/InstrumentListItem";
+import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { type Instrument } from "@/data/instruments";
 import { useInstruments } from "@/instruments/InstrumentsContext";
 import "@/search.css";

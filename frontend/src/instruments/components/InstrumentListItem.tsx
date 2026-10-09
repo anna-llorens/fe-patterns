@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Instrument } from "@/data/instruments";
-import { InstrumentIcon } from "@/components/InstrumentIcon";
+import { InstrumentIcon } from "@/instruments/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
 import "@/instrument-list-item.css";
 

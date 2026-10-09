@@ -81,3 +81,23 @@
   color: #94a3b8;
   font-size: 14px;
 }
+
+@media (max-width: 480px) {
+  .search-shell {
+    max-width: none;
+  }
+
+  .search-input {
+    padding: 12px 14px 12px 40px;
+    font-size: 16px;
+  }
+
+  .search-input::placeholder {
+    font-size: 14px;
+  }
+
+  .search-panel {
+    max-height: min(70vh, 480px);
+    overflow-y: auto;
+  }
+}

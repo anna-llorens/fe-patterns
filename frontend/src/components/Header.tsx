@@ -1,4 +1,4 @@
-import { Search } from "@/components/Search";
+import { Search } from "@/instruments/components/InstrumentSearch";
 
 export const Header = () => (
   <header className="app-header">
