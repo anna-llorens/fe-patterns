@@ -1,4 +1,4 @@
-import "@/instrument-icon.css";
+import "@/css/instrument-icon.css";
 
 type InstrumentIconProps = {
   symbol: string;

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import "@/layout-page.css";
+import "@/css/layout-page.css";
 
 type LayoutPageProps = {
   title?: string;

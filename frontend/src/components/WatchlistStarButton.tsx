@@ -1,5 +1,5 @@
 import { useWatchlist } from "@/watchlist/WatchlistContext";
-import "@/instrument-list-item.css";
+import "@/css/instrument-list-item.css";
 
 type WatchlistStarButtonProps = {
   symbol: string;

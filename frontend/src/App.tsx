@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
+import "@/css/App.css";
 import { AppRoutes } from "./routes";
 import { WatchlistProvider } from "./watchlist/WatchlistContext";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';

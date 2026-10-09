@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import type { Instrument } from "@/data/instruments";
 import { InstrumentIcon } from "@/instruments/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
-import "@/instrument-list-item.css";
+import "@/css/instrument-list-item.css";
 
 type InstrumentListItemProps = {
   instrument: Instrument;

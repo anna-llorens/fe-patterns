@@ -4,7 +4,7 @@ import { Input } from "@/components/Input";
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { type Instrument } from "@/data/instruments";
 import { useInstruments } from "@/instruments/InstrumentsContext";
-import "@/search.css";
+import "@/css/search.css";
 
 const TOP_N = 3;
 const RECENT_KEY = "fe-patterns-recent-searches";
