@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0.0",
+    "generatedAt": "2026-10-09T22:10:00Z",
+    "isMockData": true,
+    "currency": "USD",
+    "description": "Provider-neutral mock response for the React financial instruments POC. Values are realistic fixtures, not live market data."
+  },
+  "instruments": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/apple.com",
+      "quote": { "currentPrice": 229.42, "change": 2.31, "changePercent": 1.02, "open": 227.20, "previousClose": 227.11, "dayHigh": 230.18, "dayLow": 226.64, "volume": 48200000 },
+      "keyStats": { "marketCap": 3450000000000, "peRatio": 34.70, "eps": 6.61, "dividendYield": 0.44, "fiftyTwoWeekHigh": 237.49, "fiftyTwoWeekLow": 164.08, "averageVolume": 55700000 },
+      "about": { "sector": "Technology", "industry": "Consumer Electronics", "country": "United States", "website": "https://www.apple.com", "employees": 161000, "description": "Apple designs, manufactures and markets smartphones, personal computers, tablets, wearables and related services." },
+      "overview": "Apple combines a large installed-device base with a growing services business and a tightly integrated hardware and software ecosystem.",
+      "news": [
+        { "id": "aapl-1", "headline": "Apple expands its services ecosystem", "source": "Mock Financial News", "publishedAt": "2026-10-08T14:30:00Z", "url": "https://example.com/news/aapl-services", "summary": "The company announced additional features across its subscription services." },
+        { "id": "aapl-2", "headline": "Investors assess demand for Apple's latest devices", "source": "Mock Market Daily", "publishedAt": "2026-10-07T09:10:00Z", "url": "https://example.com/news/aapl-devices", "summary": "Analysts reviewed early demand indicators across major markets." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 222.10, "high": 225.40, "low": 221.70, "close": 224.80, "volume": 50100000 },
+        { "date": "2026-10-06", "open": 224.90, "high": 227.10, "low": 223.80, "close": 226.30, "volume": 47600000 },
+        { "date": "2026-10-07", "open": 226.00, "high": 228.20, "low": 225.10, "close": 227.45, "volume": 45900000 },
+        { "date": "2026-10-08", "open": 227.60, "high": 228.90, "low": 226.20, "close": 227.11, "volume": 43800000 },
+        { "date": "2026-10-09", "open": 227.20, "high": 230.18, "low": 226.64, "close": 229.42, "volume": 48200000 }
+      ]
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/microsoft.com",
+      "quote": { "currentPrice": 452.18, "change": -1.84, "changePercent": -0.41, "open": 454.50, "previousClose": 454.02, "dayHigh": 456.10, "dayLow": 450.92, "volume": 19600000 },
+      "keyStats": { "marketCap": 3360000000000, "peRatio": 37.10, "eps": 12.19, "dividendYield": 0.73, "fiftyTwoWeekHigh": 468.35, "fiftyTwoWeekLow": 344.77, "averageVolume": 21400000 },
+      "about": { "sector": "Technology", "industry": "Software—Infrastructure", "country": "United States", "website": "https://www.microsoft.com", "employees": 228000, "description": "Microsoft develops productivity software, cloud infrastructure, operating systems, gaming products and business applications." },
+      "overview": "Microsoft's growth is supported by Azure, Microsoft 365 and a broad enterprise software ecosystem.",
+      "news": [
+        { "id": "msft-1", "headline": "Microsoft adds new capabilities to its cloud platform", "source": "Mock Financial News", "publishedAt": "2026-10-09T12:20:00Z", "url": "https://example.com/news/msft-cloud", "summary": "The update focuses on developer productivity, security and AI workloads." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 445.20, "high": 449.40, "low": 443.90, "close": 448.75, "volume": 20500000 },
+        { "date": "2026-10-06", "open": 449.00, "high": 453.25, "low": 448.10, "close": 452.60, "volume": 21800000 },
+        { "date": "2026-10-07", "open": 452.70, "high": 455.80, "low": 451.40, "close": 454.30, "volume": 19100000 },
+        { "date": "2026-10-08", "open": 453.90, "high": 456.20, "low": 452.00, "close": 454.02, "volume": 18700000 },
+        { "date": "2026-10-09", "open": 454.50, "high": 456.10, "low": 450.92, "close": 452.18, "volume": 19600000 }
+      ]
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/nvidia.com",
+      "quote": { "currentPrice": 141.62, "change": 3.48, "changePercent": 2.52, "open": 138.80, "previousClose": 138.14, "dayHigh": 142.20, "dayLow": 137.95, "volume": 287400000 },
+      "keyStats": { "marketCap": 3470000000000, "peRatio": 55.30, "eps": 2.56, "dividendYield": 0.03, "fiftyTwoWeekHigh": 152.89, "fiftyTwoWeekLow": 45.01, "averageVolume": 312000000 },
+      "about": { "sector": "Technology", "industry": "Semiconductors", "country": "United States", "website": "https://www.nvidia.com", "employees": 29600, "description": "NVIDIA designs accelerated computing platforms, graphics processors, networking products and software for data centers and AI." },
+      "overview": "NVIDIA is a leading provider of accelerated-computing hardware and software used for AI training, inference and graphics.",
+      "news": [
+        { "id": "nvda-1", "headline": "NVIDIA introduces its next data-center platform", "source": "Mock Tech Markets", "publishedAt": "2026-10-09T16:05:00Z", "url": "https://example.com/news/nvda-platform", "summary": "The platform targets larger AI models and more efficient inference." },
+        { "id": "nvda-2", "headline": "Chip shares rise on data-center demand", "source": "Mock Market Daily", "publishedAt": "2026-10-08T15:40:00Z", "url": "https://example.com/news/chip-demand", "summary": "Semiconductor stocks advanced as analysts raised infrastructure forecasts." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 132.40, "high": 135.60, "low": 131.80, "close": 134.90, "volume": 301200000 },
+        { "date": "2026-10-06", "open": 135.10, "high": 137.85, "low": 134.20, "close": 136.70, "volume": 292800000 },
+        { "date": "2026-10-07", "open": 136.50, "high": 139.20, "low": 135.90, "close": 138.40, "volume": 278100000 },
+        { "date": "2026-10-08", "open": 138.70, "high": 140.10, "low": 137.20, "close": 138.14, "volume": 265600000 },
+        { "date": "2026-10-09", "open": 138.80, "high": 142.20, "low": 137.95, "close": 141.62, "volume": 287400000 }
+      ]
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/amazon.com",
+      "quote": { "currentPrice": 196.84, "change": 1.27, "changePercent": 0.65, "open": 195.80, "previousClose": 195.57, "dayHigh": 198.12, "dayLow": 194.90, "volume": 38200000 },
+      "keyStats": { "marketCap": 2060000000000, "peRatio": 42.80, "eps": 4.60, "dividendYield": null, "fiftyTwoWeekHigh": 201.20, "fiftyTwoWeekLow": 118.35, "averageVolume": 42100000 },
+      "about": { "sector": "Consumer Cyclical", "industry": "Internet Retail", "country": "United States", "website": "https://www.amazon.com", "employees": 1525000, "description": "Amazon operates global e-commerce marketplaces, cloud infrastructure through AWS, advertising and subscription services." },
+      "overview": "Amazon combines a high-volume retail platform with AWS, digital advertising and subscription businesses.",
+      "news": [
+        { "id": "amzn-1", "headline": "AWS announces additional cloud regions", "source": "Mock Financial News", "publishedAt": "2026-10-08T18:15:00Z", "url": "https://example.com/news/aws-regions", "summary": "Amazon plans to expand infrastructure capacity for enterprise customers." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 190.20, "high": 193.10, "low": 189.70, "close": 192.45, "volume": 40400000 },
+        { "date": "2026-10-06", "open": 192.70, "high": 195.00, "low": 191.80, "close": 194.10, "volume": 39700000 },
+        { "date": "2026-10-07", "open": 194.00, "high": 196.30, "low": 193.20, "close": 195.82, "volume": 37400000 },
+        { "date": "2026-10-08", "open": 195.60, "high": 197.10, "low": 194.60, "close": 195.57, "volume": 36100000 },
+        { "date": "2026-10-09", "open": 195.80, "high": 198.12, "low": 194.90, "close": 196.84, "volume": 38200000 }
+      ]
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/abc.xyz",
+      "quote": { "currentPrice": 171.35, "change": -0.76, "changePercent": -0.44, "open": 172.20, "previousClose": 172.11, "dayHigh": 173.05, "dayLow": 170.62, "volume": 26100000 },
+      "keyStats": { "marketCap": 2110000000000, "peRatio": 26.10, "eps": 6.56, "dividendYield": 0.47, "fiftyTwoWeekHigh": 191.75, "fiftyTwoWeekLow": 120.21, "averageVolume": 28400000 },
+      "about": { "sector": "Communication Services", "industry": "Internet Content & Information", "country": "United States", "website": "https://abc.xyz", "employees": 182500, "description": "Alphabet operates Google Search, YouTube, advertising platforms, Android, cloud services and a portfolio of emerging technology businesses." },
+      "overview": "Alphabet generates most of its revenue from digital advertising while Google Cloud provides a growing enterprise business.",
+      "news": [
+        { "id": "googl-1", "headline": "Alphabet updates its search and cloud products", "source": "Mock Tech Markets", "publishedAt": "2026-10-09T10:50:00Z", "url": "https://example.com/news/googl-products", "summary": "New product features emphasize AI-assisted search and enterprise workflows." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 168.00, "high": 170.30, "low": 167.40, "close": 169.85, "volume": 27900000 },
+        { "date": "2026-10-06", "open": 170.00, "high": 172.15, "low": 169.20, "close": 171.60, "volume": 27300000 },
+        { "date": "2026-10-07", "open": 171.50, "high": 173.20, "low": 170.70, "close": 172.48, "volume": 25100000 },
+        { "date": "2026-10-08", "open": 172.70, "high": 173.80, "low": 171.30, "close": 172.11, "volume": 24600000 },
+        { "date": "2026-10-09", "open": 172.20, "high": 173.05, "low": 170.62, "close": 171.35, "volume": 26100000 }
+      ]
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/meta.com",
+      "quote": { "currentPrice": 589.76, "change": 6.42, "changePercent": 1.10, "open": 584.10, "previousClose": 583.34, "dayHigh": 592.20, "dayLow": 581.75, "volume": 14200000 },
+      "keyStats": { "marketCap": 1490000000000, "peRatio": 29.40, "eps": 20.06, "dividendYield": 0.34, "fiftyTwoWeekHigh": 602.95, "fiftyTwoWeekLow": 296.10, "averageVolume": 15700000 },
+      "about": { "sector": "Communication Services", "industry": "Internet Content & Information", "country": "United States", "website": "https://www.meta.com", "employees": 70700, "description": "Meta operates social platforms including Facebook, Instagram, Messenger and WhatsApp and develops augmented and virtual reality products." },
+      "overview": "Meta's core advertising platforms benefit from global scale while the company invests heavily in AI infrastructure and mixed reality.",
+      "news": [
+        { "id": "meta-1", "headline": "Meta rolls out new tools for advertisers", "source": "Mock Market Daily", "publishedAt": "2026-10-08T13:00:00Z", "url": "https://example.com/news/meta-advertising", "summary": "The tools use automated campaign optimization across Meta's applications." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 565.30, "high": 574.80, "low": 562.10, "close": 572.45, "volume": 16100000 },
+        { "date": "2026-10-06", "open": 573.00, "high": 580.20, "low": 570.50, "close": 578.60, "volume": 15300000 },
+        { "date": "2026-10-07", "open": 578.30, "high": 586.90, "low": 576.70, "close": 584.10, "volume": 14800000 },
+        { "date": "2026-10-08", "open": 584.50, "high": 587.30, "low": 580.80, "close": 583.34, "volume": 13700000 },
+        { "date": "2026-10-09", "open": 584.10, "high": 592.20, "low": 581.75, "close": 589.76, "volume": 14200000 }
+      ]
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/tesla.com",
+      "quote": { "currentPrice": 247.56, "change": -5.18, "changePercent": -2.05, "open": 253.20, "previousClose": 252.74, "dayHigh": 254.65, "dayLow": 245.80, "volume": 104600000 },
+      "keyStats": { "marketCap": 791000000000, "peRatio": 63.80, "eps": 3.88, "dividendYield": null, "fiftyTwoWeekHigh": 299.29, "fiftyTwoWeekLow": 138.80, "averageVolume": 96800000 },
+      "about": { "sector": "Consumer Cyclical", "industry": "Auto Manufacturers", "country": "United States", "website": "https://www.tesla.com", "employees": 140500, "description": "Tesla designs electric vehicles, energy storage systems, charging products and solar generation equipment." },
+      "overview": "Tesla combines electric-vehicle manufacturing with energy storage, charging infrastructure and software-led services.",
+      "news": [
+        { "id": "tsla-1", "headline": "Tesla reports its latest vehicle deliveries", "source": "Mock Auto Markets", "publishedAt": "2026-10-09T08:30:00Z", "url": "https://example.com/news/tsla-deliveries", "summary": "Investors compared quarterly deliveries with production and consensus estimates." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 242.00, "high": 248.40, "low": 239.80, "close": 246.70, "volume": 98200000 },
+        { "date": "2026-10-06", "open": 247.10, "high": 251.30, "low": 244.90, "close": 249.85, "volume": 101400000 },
+        { "date": "2026-10-07", "open": 250.20, "high": 255.90, "low": 248.70, "close": 253.60, "volume": 108200000 },
+        { "date": "2026-10-08", "open": 253.80, "high": 256.10, "low": 250.40, "close": 252.74, "volume": 93600000 },
+        { "date": "2026-10-09", "open": 253.20, "high": 254.65, "low": 245.80, "close": 247.56, "volume": 104600000 }
+      ]
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "exchange": "NASDAQ",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/broadcom.com",
+      "quote": { "currentPrice": 181.24, "change": 2.16, "changePercent": 1.21, "open": 179.40, "previousClose": 179.08, "dayHigh": 182.35, "dayLow": 178.62, "volume": 24800000 },
+      "keyStats": { "marketCap": 851000000000, "peRatio": 41.60, "eps": 4.36, "dividendYield": 1.17, "fiftyTwoWeekHigh": 186.42, "fiftyTwoWeekLow": 82.72, "averageVolume": 27300000 },
+      "about": { "sector": "Technology", "industry": "Semiconductors", "country": "United States", "website": "https://www.broadcom.com", "employees": 37000, "description": "Broadcom supplies semiconductor and infrastructure software products for networking, broadband, wireless, storage and enterprise markets." },
+      "overview": "Broadcom combines a diversified semiconductor portfolio with a growing infrastructure software operation.",
+      "news": [
+        { "id": "avgo-1", "headline": "Broadcom highlights demand for AI networking", "source": "Mock Tech Markets", "publishedAt": "2026-10-08T20:10:00Z", "url": "https://example.com/news/avgo-networking", "summary": "Management discussed custom accelerators and high-speed networking demand." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 173.20, "high": 176.10, "low": 172.40, "close": 175.60, "volume": 28200000 },
+        { "date": "2026-10-06", "open": 175.80, "high": 178.30, "low": 174.90, "close": 177.45, "volume": 26700000 },
+        { "date": "2026-10-07", "open": 177.70, "high": 180.20, "low": 176.80, "close": 179.50, "volume": 25400000 },
+        { "date": "2026-10-08", "open": 179.20, "high": 180.60, "low": 177.90, "close": 179.08, "volume": 23900000 },
+        { "date": "2026-10-09", "open": 179.40, "high": 182.35, "low": 178.62, "close": 181.24, "volume": 24800000 }
+      ]
+    },
+    {
+      "symbol": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "exchange": "NYSE",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/jpmorganchase.com",
+      "quote": { "currentPrice": 224.18, "change": 0.94, "changePercent": 0.42, "open": 223.50, "previousClose": 223.24, "dayHigh": 225.30, "dayLow": 222.60, "volume": 8700000 },
+      "keyStats": { "marketCap": 626000000000, "peRatio": 12.50, "eps": 17.93, "dividendYield": 2.05, "fiftyTwoWeekHigh": 225.48, "fiftyTwoWeekLow": 135.19, "averageVolume": 9300000 },
+      "about": { "sector": "Financial Services", "industry": "Banks—Diversified", "country": "United States", "website": "https://www.jpmorganchase.com", "employees": 313200, "description": "JPMorgan Chase provides consumer banking, commercial banking, investment banking, payments and asset-management services." },
+      "overview": "JPMorgan Chase is a diversified global bank with leading consumer, payments, investment-banking and asset-management franchises.",
+      "news": [
+        { "id": "jpm-1", "headline": "JPMorgan investors prepare for quarterly results", "source": "Mock Financial News", "publishedAt": "2026-10-09T11:15:00Z", "url": "https://example.com/news/jpm-results", "summary": "Attention is focused on net interest income, credit quality and investment-banking activity." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 218.50, "high": 220.80, "low": 217.90, "close": 220.20, "volume": 9600000 },
+        { "date": "2026-10-06", "open": 220.40, "high": 222.10, "low": 219.60, "close": 221.75, "volume": 9100000 },
+        { "date": "2026-10-07", "open": 221.80, "high": 224.00, "low": 221.10, "close": 223.50, "volume": 8900000 },
+        { "date": "2026-10-08", "open": 223.70, "high": 224.50, "low": 222.40, "close": 223.24, "volume": 8300000 },
+        { "date": "2026-10-09", "open": 223.50, "high": 225.30, "low": 222.60, "close": 224.18, "volume": 8700000 }
+      ]
+    },
+    {
+      "symbol": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "exchange": "NYSE",
+      "currency": "USD",
+      "assetType": "stock",
+      "logoUrl": "https://logo.clearbit.com/exxonmobil.com",
+      "quote": { "currentPrice": 119.62, "change": 1.08, "changePercent": 0.91, "open": 118.70, "previousClose": 118.54, "dayHigh": 120.05, "dayLow": 118.10, "volume": 16400000 },
+      "keyStats": { "marketCap": 527000000000, "peRatio": 14.20, "eps": 8.42, "dividendYield": 3.20, "fiftyTwoWeekHigh": 126.34, "fiftyTwoWeekLow": 95.77, "averageVolume": 17100000 },
+      "about": { "sector": "Energy", "industry": "Oil & Gas Integrated", "country": "United States", "website": "https://corporate.exxonmobil.com", "employees": 62000, "description": "Exxon Mobil explores for and produces oil and natural gas and operates refining, chemicals, fuels and low-carbon businesses." },
+      "overview": "Exxon Mobil is an integrated energy company whose results are influenced by commodity prices, production volumes and refining margins.",
+      "news": [
+        { "id": "xom-1", "headline": "Exxon updates investors on production plans", "source": "Mock Energy Markets", "publishedAt": "2026-10-08T15:25:00Z", "url": "https://example.com/news/xom-production", "summary": "The company outlined planned production growth and capital allocation priorities." }
+      ],
+      "priceHistory": [
+        { "date": "2026-10-05", "open": 115.80, "high": 117.10, "low": 115.20, "close": 116.75, "volume": 17900000 },
+        { "date": "2026-10-06", "open": 116.90, "high": 118.00, "low": 116.30, "close": 117.65, "volume": 16800000 },
+        { "date": "2026-10-07", "open": 117.80, "high": 119.10, "low": 117.20, "close": 118.70, "volume": 16200000 },
+        { "date": "2026-10-08", "open": 118.80, "high": 119.30, "low": 117.90, "close": 118.54, "volume": 15400000 },
+        { "date": "2026-10-09", "open": 118.70, "high": 120.05, "low": 118.10, "close": 119.62, "volume": 16400000 }
+      ]
+    }
+  ]
+}
