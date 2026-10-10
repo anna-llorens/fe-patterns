@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
-import { type Instrument } from "@/data/instruments";
-import { useInstruments } from "@/instruments/InstrumentsContext";
+import { useInstruments } from "@/instruments/hooks/useInstruments";
 import "@/css/search.css";
+import type { InstrumentSummary } from "../model/Instrument";
 
 const TOP_N = 3;
 const RECENT_KEY = "fe-patterns-recent-searches";
@@ -12,17 +12,17 @@ const DEFAULT_TOP_SYMBOLS = ["AAPL", "TSLA", "MSFT"];
 const DEFAULT_RECENT = ["AAPL", "TSLA", "NVDA", "MSFT", "GOOGL"];
 
 function matchInstruments(
-  instruments: Instrument[],
+  instruments: InstrumentSummary[],
   query: string,
-): Instrument[] {
+): InstrumentSummary[] {
   const term = query.trim().toLowerCase();
   if (!term) return [];
 
   return instruments.filter(
-    (i) =>
-      i.symbol.toLowerCase().includes(term) ||
-      i.name.toLowerCase().includes(term) ||
-      i.sector.toLowerCase().includes(term),
+    (instrument) =>
+      instrument.symbol.toLowerCase().includes(term) ||
+      instrument.name.toLowerCase().includes(term) ||
+      instrument.exchange.toLowerCase().includes(term),
   );
 }
 
@@ -43,19 +43,19 @@ function saveRecent(symbols: string[]) {
 }
 
 function topResultsForQuery(
-  instruments: Instrument[],
+  instruments: InstrumentSummary[],
   query: string,
-): Instrument[] {
+): InstrumentSummary[] {
   if (!query.trim()) {
     return DEFAULT_TOP_SYMBOLS.map((symbol) =>
       instruments.find((i) => i.symbol === symbol),
-    ).filter((i): i is Instrument => i !== undefined);
+    ).filter((i): i is InstrumentSummary => i !== undefined);
   }
   return matchInstruments(instruments, query);
 }
 
 export const Search = () => {
-  const { instruments } = useInstruments();
+  const { data: instruments = [] } = useInstruments();
   const shellRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);

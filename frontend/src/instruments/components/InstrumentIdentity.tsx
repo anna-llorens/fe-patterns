@@ -4,7 +4,7 @@ import type { InstrumentDetail } from "@/instruments/model/Instrument";
 type InstrumentIdentityProps = {
   instrument: Pick<
     InstrumentDetail,
-    "symbol" | "name" | "exchange" | "sector"
+    "symbol" | "name" | "exchange" | "currency" | "about"
   >;
 };
 
@@ -20,7 +20,8 @@ export function InstrumentIdentity({ instrument }: InstrumentIdentityProps) {
         <h1 className="instrument-title">{instrument.symbol}</h1>
         <p className="instrument-subtitle">{instrument.name}</p>
         <p className="instrument-meta">
-          {instrument.exchange} · USD · {instrument.sector}
+          {instrument.exchange} · {instrument.currency} ·{" "}
+          {instrument.about.sector}
         </p>
       </div>
     </div>

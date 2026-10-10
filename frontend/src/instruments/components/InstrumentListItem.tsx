@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import type { Instrument } from "@/data/instruments";
+import type { InstrumentSummary } from "@/instruments/model/Instrument";
 import { InstrumentIcon } from "@/instruments/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
 import "@/css/instrument-list-item.css";
 
 type InstrumentListItemProps = {
-  instrument: Instrument;
+  instrument: InstrumentSummary;
   showSector?: boolean;
   onNavigate?: () => void;
   /** Dark dropdown styling in search panel */
@@ -18,7 +18,8 @@ export const InstrumentListItem = ({
   onNavigate,
   variant = "list",
 }: InstrumentListItemProps) => {
-  const positive = instrument.dailyChangePercent >= 0;
+  const { quote } = instrument;
+  const positive = quote.changePercent >= 0;
 
   return (
     <div
@@ -40,15 +41,17 @@ export const InstrumentListItem = ({
           <span className="instrument-list-item-name">{instrument.name}</span>
         </span>
         {showSector && (
-          <span className="instrument-list-item-sector">{instrument.sector}</span>
+          <span className="instrument-list-item-sector">
+            {instrument.exchange}
+          </span>
         )}
         <span className="instrument-list-item-quote">
           <span className="instrument-list-item-price">
-            ${instrument.price.toFixed(2)}
+            ${quote.currentPrice.toFixed(2)}
           </span>
           <span className={positive ? "positive" : "negative"}>
             {positive ? "+" : ""}
-            {instrument.dailyChangePercent.toFixed(2)}%
+            {quote.changePercent.toFixed(2)}%
           </span>
         </span>
       </Link>

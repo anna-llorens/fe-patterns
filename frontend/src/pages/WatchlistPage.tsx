@@ -1,15 +1,18 @@
 import { LayoutPage } from "@/components/LayoutPage";
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
-import { getInstrumentBySymbol } from "@/data/instruments";
-import { useInstruments } from "@/instruments/InstrumentsContext";
+import { useInstruments } from "@/instruments/hooks/useInstruments";
+import type { InstrumentSummary } from "@/instruments/model/Instrument";
 import { useWatchlist } from "@/watchlist/WatchlistContext";
 
 export const WatchlistPage = () => {
   const { symbols } = useWatchlist();
-  const { instruments: all } = useInstruments();
+  const { data: all = [] } = useInstruments();
+
   const instruments = symbols
-    .map((symbol) => getInstrumentBySymbol(all, symbol))
-    .filter((i) => i !== undefined);
+    .map((symbol) =>
+      all.find((i) => i.symbol.toUpperCase() === symbol.toUpperCase()),
+    )
+    .filter((i): i is InstrumentSummary => i !== undefined);
 
   return (
     <LayoutPage>
