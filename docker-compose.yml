@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: fe_patterns
+      POSTGRES_PASSWORD: fe_patterns
+      POSTGRES_DB: fe_patterns
+    volumes:
+      - fe_patterns_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fe_patterns -d fe_patterns"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  fe_patterns_pg:

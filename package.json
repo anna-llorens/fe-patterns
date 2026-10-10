@@ -10,6 +10,10 @@
     "dev:frontend": "yarn workspace frontend dev",
     "dev:backend": "yarn workspace backend dev",
     "build": "yarn workspace frontend build && yarn workspace backend build",
-    "lint": "yarn workspace frontend lint"
+    "lint": "yarn workspace frontend lint",
+    "db:up": "docker compose up -d",
+    "db:migrate": "yarn workspace backend db:migrate",
+    "db:seed": "yarn workspace backend db:seed",
+    "test:backend": "yarn workspace backend test"
   }
 }

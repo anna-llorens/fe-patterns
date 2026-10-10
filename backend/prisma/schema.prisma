@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String     @id @default(uuid())
+  email       String     @unique
+  displayName String?
+  createdAt   DateTime   @default(now())
+  watchlist   Watchlist?
+}
+
+model Instrument {
+  id                   String          @id @default(uuid())
+  provider             String
+  providerInstrumentId String
+  symbol               String
+  name                 String
+  assetType            AssetType
+  exchange             String?
+  currency             String
+  logoUrl              String?
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  watchlistItems       WatchlistItem[]
+
+  @@unique([provider, providerInstrumentId])
+  @@index([symbol])
+}
+
+model Watchlist {
+  id        String          @id @default(uuid())
+  userId    String          @unique
+  name      String
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  user      User            @relation(fields: [userId], references: [id])
+  items     WatchlistItem[]
+}
+
+model WatchlistItem {
+  watchlistId  String
+  instrumentId String
+  addedAt      DateTime   @default(now())
+  watchlist    Watchlist  @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
+  instrument   Instrument @relation(fields: [instrumentId], references: [id], onDelete: Cascade)
+
+  @@id([watchlistId, instrumentId])
+}
+
+enum AssetType {
+  STOCK
+  ETF
+  CRYPTO
+}
