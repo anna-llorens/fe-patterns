@@ -134,8 +134,7 @@ export const InstrumentPage = () => {
         <PriceBlock quote={instrument.quote} />
 
         <PriceChart
-          symbol={instrument.symbol}
-          price={instrument.quote.currentPrice}
+          priceHistory={instrument.priceHistory}
           positive={positive}
         />
 
