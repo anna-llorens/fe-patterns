@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
+import {
+  instrumentDetailSchema,
+  instrumentListResponseSchema,
+} from "@fe-patterns/api-contracts";
 import request from "supertest";
 import { prisma } from "./database/prisma.js";
 import { createApp } from "./app.js";
@@ -22,23 +26,20 @@ describe("HTTP API", { skip: !hasDatabase && "DATABASE_URL not set" }, () => {
     await prisma.$disconnect();
   });
 
-  it("GET /api/instruments returns legacy catalog", async () => {
+  it("GET /api/instruments returns instrument catalog", async () => {
     const response = await request(app).get("/api/instruments");
     assert.equal(response.status, 200);
-    assert.ok(Array.isArray(response.body));
+    assert.doesNotThrow(() =>
+      instrumentListResponseSchema.parse(response.body),
+    );
     assert.ok(response.body.length >= 10);
-    const first = response.body[0];
-    assert.ok(first.symbol);
-    assert.ok(first.quote?.currentPrice !== undefined);
   });
 
-  it("GET /api/instruments/:symbol returns aggregated detail or 404", async () => {
+  it("GET /api/instruments/:symbol returns detail or 404", async () => {
     const ok = await request(app).get("/api/instruments/AAPL");
     assert.equal(ok.status, 200);
+    assert.doesNotThrow(() => instrumentDetailSchema.parse(ok.body));
     assert.equal(ok.body.symbol, "AAPL");
-    assert.ok(ok.body.priceHistory?.length > 0);
-    assert.ok(ok.body.news?.length > 0);
-    assert.ok(ok.body.keyStats?.marketCap !== undefined);
 
     const missing = await request(app).get("/api/instruments/NOTREAL");
     assert.equal(missing.status, 404);
@@ -47,7 +48,9 @@ describe("HTTP API", { skip: !hasDatabase && "DATABASE_URL not set" }, () => {
   it("GET /api/watchlist/instruments returns seeded items", async () => {
     const response = await request(app).get("/api/watchlist/instruments");
     assert.equal(response.status, 200);
-    assert.ok(Array.isArray(response.body));
+    assert.doesNotThrow(() =>
+      instrumentListResponseSchema.parse(response.body),
+    );
     assert.ok(response.body.some((row: { symbol: string }) => row.symbol === "AAPL"));
   });
 

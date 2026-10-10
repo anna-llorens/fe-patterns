@@ -1,9 +1,9 @@
+import type { InstrumentSummary } from "@fe-patterns/api-contracts";
 import type { MarketDataProvider } from "../market-data/marketData.types.js";
-import { toLegacyInstrumentSummary } from "../instruments/legacyMappers.js";
+import { toInstrumentSummaryResponse } from "../instruments/instrumentResponse.mapper.js";
 import { instrumentToReference } from "../instruments/instrumentReference.js";
 import { instrumentRepository } from "../instruments/instrument.repository.js";
 import { requireQuote, requireQuotesForInstruments } from "../instruments/quoteHelpers.js";
-import type { WatchlistInstrumentsResponse } from "../instruments/instrument.types.js";
 import { getDefaultUser } from "../users/user.repository.js";
 import { watchlistRepository } from "./watchlist.repository.js";
 
@@ -28,7 +28,7 @@ export function createWatchlistService(marketData: MarketDataProvider) {
       };
     },
 
-    async listInstruments(): Promise<WatchlistInstrumentsResponse> {
+    async listInstruments(): Promise<InstrumentSummary[]> {
       const watchlist = await getWatchlistForDefaultUser();
       const items = await watchlistRepository.findItemsWithInstruments(
         watchlist.id,
@@ -39,7 +39,7 @@ export function createWatchlistService(marketData: MarketDataProvider) {
       requireQuotesForInstruments(instruments, quotes);
 
       return instruments.map((instrument) =>
-        toLegacyInstrumentSummary(
+        toInstrumentSummaryResponse(
           instrument,
           requireQuote(instrument, quotes),
         ),

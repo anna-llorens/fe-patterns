@@ -1,7 +1,9 @@
-import type {
-  InstrumentDetail,
-  InstrumentSummary,
-} from "../model/Instrument";
+import {
+  instrumentDetailSchema,
+  instrumentListResponseSchema,
+  type InstrumentDetail,
+  type InstrumentSummary,
+} from "@fe-patterns/api-contracts";
 
 export async function getInstruments(
   signal?: AbortSignal,
@@ -14,7 +16,8 @@ export async function getInstruments(
     throw new Error(`Failed to fetch instruments: ${response.status}`);
   }
 
-  return response.json();
+  const data: unknown = await response.json();
+  return instrumentListResponseSchema.parse(data);
 }
 
 export async function getInstrument(
@@ -30,5 +33,6 @@ export async function getInstrument(
     throw new Error(`Failed to fetch instrument: ${response.status}`);
   }
 
-  return response.json();
+  const data: unknown = await response.json();
+  return instrumentDetailSchema.parse(data);
 }

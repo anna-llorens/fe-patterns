@@ -1,18 +1,18 @@
 import type { Instrument } from "@prisma/client";
 import type {
+  InstrumentDetail,
+  InstrumentSummary,
+  Quote,
+} from "@fe-patterns/api-contracts";
+import type {
   InstrumentProfileDto,
   NewsArticleDto,
   PricePointDto,
   QuoteDto,
 } from "../market-data/marketData.types.js";
-import type {
-  LegacyInstrumentDetail,
-  LegacyInstrumentSummary,
-  LegacyQuote,
-} from "./instrument.types.js";
 import { prismaAssetTypeToLiteral } from "./instrumentReference.js";
 
-function toLegacyQuote(quote: QuoteDto): LegacyQuote {
+export function toQuoteResponse(quote: QuoteDto): Quote {
   return {
     currentPrice: quote.price,
     change: quote.change,
@@ -25,40 +25,30 @@ function toLegacyQuote(quote: QuoteDto): LegacyQuote {
   };
 }
 
-function toLegacyAssetType(
-  instrument: Instrument,
-): LegacyInstrumentSummary["assetType"] {
-  const literal = prismaAssetTypeToLiteral(instrument.assetType);
-  if (literal === "stock") {
-    return "stock";
-  }
-  return "stock";
-}
-
-export function toLegacyInstrumentSummary(
+export function toInstrumentSummaryResponse(
   instrument: Instrument,
   quote: QuoteDto,
-): LegacyInstrumentSummary {
+): InstrumentSummary {
   return {
     symbol: instrument.symbol,
     name: instrument.name,
     exchange: instrument.exchange ?? "",
     currency: instrument.currency,
-    assetType: toLegacyAssetType(instrument),
+    assetType: prismaAssetTypeToLiteral(instrument.assetType),
     logoUrl: instrument.logoUrl ?? "",
-    quote: toLegacyQuote(quote),
+    quote: toQuoteResponse(quote),
   };
 }
 
-export function toLegacyInstrumentDetail(input: {
+export function toInstrumentDetailResponse(input: {
   instrument: Instrument;
   quote: QuoteDto;
   profile: InstrumentProfileDto;
   priceHistory: PricePointDto[];
   news: NewsArticleDto[];
-}): LegacyInstrumentDetail {
+}): InstrumentDetail {
   return {
-    ...toLegacyInstrumentSummary(input.instrument, input.quote),
+    ...toInstrumentSummaryResponse(input.instrument, input.quote),
     keyStats: input.profile.keyStats,
     about: input.profile.about,
     overview: input.profile.overview,

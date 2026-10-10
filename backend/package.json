@@ -7,6 +7,7 @@
     "dev": "nodemon --watch src --ext ts,json --exec tsx src/server.ts",
     "start": "node dist/server.js",
     "build": "tsc",
+    "pretest": "yarn --cwd .. build:contracts",
     "test": "node --import tsx --test 'src/**/*.test.ts'",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed",
@@ -16,6 +17,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@fe-patterns/api-contracts": "1.0.0",
     "@prisma/client": "^6.16.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",

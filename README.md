@@ -5,8 +5,9 @@ React frontend + TypeScript API for instrument patterns demo.
 ## Layout
 
 ```text
-frontend/   Vite + React
-backend/    Express 5, Prisma, PostgreSQL — see backend/README.md
+frontend/              Vite + React
+backend/               Express 5, Prisma, PostgreSQL — see backend/README.md
+packages/api-contracts Shared Zod HTTP types (@fe-patterns/api-contracts)
 ```
 
 ## Prerequisites
@@ -45,7 +46,8 @@ yarn dev:frontend
 | ------- | ----------- |
 | `yarn dev:frontend` | Vite dev server |
 | `yarn dev:backend` | API with hot reload |
-| `yarn build` | Build both workspaces |
+| `yarn build:contracts` | Compile `@fe-patterns/api-contracts` |
+| `yarn build` | Contracts, then frontend + backend |
 | `yarn lint` | ESLint (frontend) |
 | `yarn db:up` | Start Postgres (docker compose) |
 | `yarn db:migrate` | Prisma migrate (backend workspace) |

@@ -1,3 +1,7 @@
+import type {
+  InstrumentDetail,
+  InstrumentSummary,
+} from "@fe-patterns/api-contracts";
 import { getProviderInstrumentKey } from "../market-data/keys.js";
 import type { MarketDataProvider } from "../market-data/marketData.types.js";
 import { DEFAULT_NEWS_LIMIT } from "../market-data/marketData.types.js";
@@ -7,9 +11,9 @@ import {
   MarketDataUnavailableError,
 } from "./instrument.errors.js";
 import {
-  toLegacyInstrumentDetail,
-  toLegacyInstrumentSummary,
-} from "./legacyMappers.js";
+  toInstrumentDetailResponse,
+  toInstrumentSummaryResponse,
+} from "./instrumentResponse.mapper.js";
 import { instrumentToReference } from "./instrumentReference.js";
 import {
   instrumentRepository,
@@ -19,10 +23,6 @@ import {
   requireQuote,
   requireQuotesForInstruments,
 } from "./quoteHelpers.js";
-import type {
-  LegacyInstrumentDetail,
-  LegacyInstrumentSummary,
-} from "./instrument.types.js";
 
 export function createInstrumentService(
   marketData: MarketDataProvider,
@@ -40,21 +40,21 @@ export function createInstrumentService(
   }
 
   return {
-    async listLocalCatalog(): Promise<LegacyInstrumentSummary[]> {
+    async listLocalCatalog(): Promise<InstrumentSummary[]> {
       const instruments = await repository.findAll();
       const refs = instruments.map(instrumentToReference);
       const quotes = await marketData.getQuotes(refs);
       requireQuotesForInstruments(instruments, quotes);
 
       return instruments.map((instrument) =>
-        toLegacyInstrumentSummary(
+        toInstrumentSummaryResponse(
           instrument,
           requireQuote(instrument, quotes),
         ),
       );
     },
 
-    async getBySymbol(symbol: string): Promise<LegacyInstrumentDetail> {
+    async getBySymbol(symbol: string): Promise<InstrumentDetail> {
       const instrument = await resolveUniqueBySymbol(symbol);
       const instrumentRef = instrumentToReference(instrument);
 
@@ -73,7 +73,7 @@ export function createInstrumentService(
         );
       }
 
-      return toLegacyInstrumentDetail({
+      return toInstrumentDetailResponse({
         instrument,
         quote,
         profile,

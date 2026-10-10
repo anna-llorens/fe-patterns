@@ -33,7 +33,7 @@ See [`.env.example`](.env.example). `DEFAULT_USER_EMAIL` must match the seeded u
 
 ## HTTP API
 
-### Instruments (legacy contract for the current React app)
+### Instruments (HTTP contract)
 
 | Route | Meaning |
 | ----- | ------- |
@@ -49,7 +49,7 @@ Provider `search()` exists for a future search API; it is not exposed over HTTP 
 | Route | Body |
 | ----- | ---- |
 | `GET /api/watchlist` | Metadata |
-| `GET /api/watchlist/instruments` | Legacy `InstrumentSummary[]` (same list shape as the catalog endpoint) |
+| `GET /api/watchlist/instruments` | `InstrumentSummary[]` (same shape as the catalog endpoint) |
 | `POST /api/watchlist/instruments` | `{ "instrumentId": "uuid" }` — **201** first add, **200** if already present |
 | `DELETE /api/watchlist/instruments/:instrumentId` | **204** (idempotent if already removed) |
 

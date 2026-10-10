@@ -4,12 +4,16 @@
   "version": "1.0.0",
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "packages/*"
   ],
   "scripts": {
+    "build:contracts": "yarn workspace @fe-patterns/api-contracts build",
+    "predev:frontend": "yarn build:contracts",
     "dev:frontend": "yarn workspace frontend dev",
+    "predev:backend": "yarn build:contracts",
     "dev:backend": "yarn workspace backend dev",
-    "build": "yarn workspace frontend build && yarn workspace backend build",
+    "build": "yarn build:contracts && yarn workspace frontend build && yarn workspace backend build",
     "lint": "yarn workspace frontend lint",
     "db:up": "docker compose up -d",
     "db:migrate": "yarn workspace backend db:migrate",
