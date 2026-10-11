@@ -56,6 +56,7 @@ yarn dev:frontend
 
 ## API notes
 
-- `GET /api/instruments` — local app catalog (seeded instruments), not the full market.
+Full route list, status codes, and `curl` examples: [backend/README.md — HTTP API](backend/README.md#http-api).
+
+- Catalog endpoints use seeded `Instrument` rows in Postgres plus live quotes from the mock provider — not the full market.
 - Instrument search is not exposed on HTTP in v1; the provider layer implements `search()` for a later phase.
-- Watchlist routes live under `/api/watchlist` (backend only until the frontend is wired).

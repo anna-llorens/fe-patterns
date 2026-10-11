@@ -1,7 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import "@/css/App.css";
 import { AppRoutes } from "./routes";
-import { WatchlistProvider } from "./watchlist/WatchlistContext";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   QueryClient,
@@ -14,11 +13,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <WatchlistProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </WatchlistProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }

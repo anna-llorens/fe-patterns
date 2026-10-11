@@ -55,7 +55,10 @@ export const InstrumentListItem = ({
           </span>
         </span>
       </Link>
-      <WatchlistStarButton symbol={instrument.symbol} />
+      <WatchlistStarButton
+        instrumentId={instrument.id}
+        symbol={instrument.symbol}
+      />
     </div>
   );
 };

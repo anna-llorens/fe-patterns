@@ -4,11 +4,12 @@ import {
   type InstrumentDetail,
   type InstrumentSummary,
 } from "@fe-patterns/api-contracts";
+import { urlFor } from "../../api/apiConfig";
 
 export async function getInstruments(
   signal?: AbortSignal,
 ): Promise<InstrumentSummary[]> {
-  const response = await fetch("/api/instruments", {
+  const response = await fetch(urlFor("instruments"), {
     signal,
   });
 
@@ -24,10 +25,7 @@ export async function getInstrument(
   symbol: string,
   signal?: AbortSignal,
 ): Promise<InstrumentDetail> {
-  const response = await fetch(
-    `/api/instruments/${encodeURIComponent(symbol)}`,
-    { signal },
-  );
+  const response = await fetch(urlFor("instrument", { symbol }), { signal });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch instrument: ${response.status}`);

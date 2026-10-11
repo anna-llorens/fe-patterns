@@ -30,6 +30,7 @@ export function toInstrumentSummaryResponse(
   quote: QuoteDto,
 ): InstrumentSummary {
   return {
+    id: instrument.id,
     symbol: instrument.symbol,
     name: instrument.name,
     exchange: instrument.exchange ?? "",

@@ -125,6 +125,7 @@ export const InstrumentPage = () => {
           <InstrumentIdentity instrument={instrument} />
           <div className="instrument-actions">
             <WatchlistStarButton
+              instrumentId={instrument.id}
               symbol={instrument.symbol}
               variant="header"
             />

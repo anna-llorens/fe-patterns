@@ -63,6 +63,7 @@ export const pricePointSchema = z.object({
 export type PricePoint = z.infer<typeof pricePointSchema>;
 
 export const instrumentSummarySchema = z.object({
+  id: z.uuid(),
   symbol: z.string(),
   name: z.string(),
   exchange: z.string(),
