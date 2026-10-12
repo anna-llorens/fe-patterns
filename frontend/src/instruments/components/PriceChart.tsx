@@ -33,16 +33,16 @@ export function availableChartRanges(history: PricePoint[]): ChartRange[] {
 
   const spanDays = historySpanDays(history);
   const ranges = CHART_RANGES.filter(
-    (r) => r === "ALL" || RANGE_DAYS[r] <= spanDays,
+    (chartRange) => chartRange === "ALL" || RANGE_DAYS[chartRange] <= spanDays,
   );
 
   return ranges.length > 0 ? ranges : ["ALL"];
 }
 
 function defaultChartRange(ranges: ChartRange[]): ChartRange {
-  for (let i = CHART_RANGES.length - 2; i >= 0; i--) {
-    const r = CHART_RANGES[i];
-    if (ranges.includes(r)) return r;
+  for (let index = CHART_RANGES.length - 2; index >= 0; index--) {
+    const chartRange = CHART_RANGES[index];
+    if (ranges.includes(chartRange)) return chartRange;
   }
   return ranges.includes("ALL") ? "ALL" : ranges[0];
 }
@@ -61,7 +61,9 @@ function historyForRange(
   const cutoff = new Date(latest);
   cutoff.setDate(cutoff.getDate() - days);
 
-  const filtered = sorted.filter((p) => new Date(p.date) >= cutoff);
+  const filtered = sorted.filter(
+    (pricePoint) => new Date(pricePoint.date) >= cutoff,
+  );
   return filtered.length > 0 ? filtered : sorted;
 }
 
@@ -84,7 +86,9 @@ export const PriceChart = ({ priceHistory, positive }: PriceChartProps) => {
   }, [range, ranges]);
 
   const prices = useMemo(() => {
-    return historyForRange(priceHistory, activeRange).map((p) => p.close);
+    return historyForRange(priceHistory, activeRange).map(
+      (pricePoint) => pricePoint.close,
+    );
   }, [priceHistory, activeRange]);
 
   const width = 800;
@@ -105,14 +109,14 @@ export const PriceChart = ({ priceHistory, positive }: PriceChartProps) => {
   const max = Math.max(...prices);
   const span = max - min || 1;
 
-  const coords = prices.map((p, i) => {
-    const x = pad.left + (i / Math.max(prices.length - 1, 1)) * innerW;
-    const y = pad.top + innerH - ((p - min) / span) * innerH;
+  const coords = prices.map((price, index) => {
+    const x = pad.left + (index / Math.max(prices.length - 1, 1)) * innerW;
+    const y = pad.top + innerH - ((price - min) / span) * innerH;
     return { x, y };
   });
 
-  const line = coords.map((p) => `${p.x},${p.y}`).join(" ");
-  const area = `${coords.map((p) => `${p.x},${p.y}`).join(" ")} ${pad.left + innerW},${pad.top + innerH} ${pad.left},${pad.top + innerH}`;
+  const line = coords.map((coordinate) => `${coordinate.x},${coordinate.y}`).join(" ");
+  const area = `${coords.map((coordinate) => `${coordinate.x},${coordinate.y}`).join(" ")} ${pad.left + innerW},${pad.top + innerH} ${pad.left},${pad.top + innerH}`;
 
   const yTicks = [min, min + span / 2, max];
   const stroke = positive ? "#22c55e" : "#ef4444";
@@ -121,14 +125,14 @@ export const PriceChart = ({ priceHistory, positive }: PriceChartProps) => {
   return (
     <div className="price-chart-block">
       <div className="instrument-ranges">
-        {ranges.map((r) => (
+        {ranges.map((chartRange) => (
           <Button
-            key={r}
+            key={chartRange}
             variant="pill"
-            active={activeRange === r}
-            onClick={() => setRange(r)}
+            active={activeRange === chartRange}
+            onClick={() => setRange(chartRange)}
           >
-            {r}
+            {chartRange}
           </Button>
         ))}
       </div>
