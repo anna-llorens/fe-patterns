@@ -1,5 +1,5 @@
 import { Button } from "@/components/Button";
-import "@/css/tabs.css";
+import "./Tabs.css";
 
 type TabsProps<T extends string> = {
   items: readonly T[];

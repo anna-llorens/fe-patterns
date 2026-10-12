@@ -1,6 +1,6 @@
 import { useWatchlistToggle } from "@/watchlist/hooks/useWatchlistToggle";
 import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
-import "@/css/instrument-list-item.css";
+import "@/instruments/components/InstrumentListItem.css";
 
 type WatchlistStarButtonProps = {
   instrumentId: string;

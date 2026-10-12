@@ -3,7 +3,7 @@ import { appPaths } from "@/routes/paths";
 import type { InstrumentSummary } from "@/instruments/model/Instrument";
 import { InstrumentIcon } from "@/instruments/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
-import "@/css/instrument-list-item.css";
+import "./InstrumentListItem.css";
 
 type InstrumentListItemProps = {
   instrument: InstrumentSummary;

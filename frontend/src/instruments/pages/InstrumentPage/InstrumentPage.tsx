@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { QueryContent } from "@/components/layouts/QueryContent";
 import { LayoutPageFeedback } from "@/components/layouts/LayoutPageFeedback";
 import { useInstrument } from "@/instruments/hooks/useInstrument";
-import "@/css/instrument-page.css";
+import "./instrument-page.css";
 import { InstrumentDetails } from "./InstrumentDetails";
 
 export const InstrumentPage = () => {

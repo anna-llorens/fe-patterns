@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
-import "@/css/button.css";
+import "./Button.css";
 
 type ButtonVariant =
   | "primary"

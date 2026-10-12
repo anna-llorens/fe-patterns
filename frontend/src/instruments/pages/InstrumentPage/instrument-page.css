@@ -20,22 +20,6 @@
   margin: 0 auto;
 }
 
-.instrument-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-  padding: 0;
-  background: none;
-  color: var(--ip-muted);
-  font-size: 14px;
-}
-
-.instrument-back:hover {
-  color: var(--ip-text);
-  transform: none;
-}
-
 .instrument-header {
   display: flex;
   align-items: flex-start;
@@ -88,6 +72,15 @@
   margin: 6px 0 0;
   font-size: 16px;
   font-weight: 600;
+}
+
+.price-chart-block {
+  margin-bottom: 20px;
+}
+
+.price-chart-block .layout-page-muted {
+  margin: 0;
+  color: var(--ip-muted);
 }
 
 .instrument-ranges {
@@ -147,11 +140,6 @@
   color: var(--ip-muted);
   line-height: 1.6;
   font-size: 14px;
-}
-
-.instrument-not-found {
-  text-align: center;
-  padding: 48px 24px;
 }
 
 @media (max-width: 720px) {

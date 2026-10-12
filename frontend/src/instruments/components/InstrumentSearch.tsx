@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { useInstruments } from "@/instruments/hooks/useInstruments";
-import "@/css/search.css";
+import "./InstrumentSearch.css";
 import type { InstrumentSummary } from "../model/Instrument";
 
 const TOP_N = 3;

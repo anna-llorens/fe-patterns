@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./layout-page.css";
 
 type LayoutPageFeedbackProps = {
   variant?: "loading" | "error" | "empty";
