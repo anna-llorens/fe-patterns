@@ -1,5 +1,4 @@
-import { useAddToWatchlist } from "@/watchlist/hooks/useAddToWatchlist";
-import { useRemoveFromWatchlist } from "@/watchlist/hooks/useRemoveFromWatchlist";
+import { useWatchlistToggle } from "@/watchlist/hooks/useWatchlistToggle";
 import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
 import "@/css/instrument-list-item.css";
 
@@ -12,20 +11,12 @@ type WatchlistStarButtonProps = {
 
 export const WatchlistStarButton = ({
   instrumentId,
-  symbol,
   variant = "list",
 }: WatchlistStarButtonProps) => {
   const { data: watchlist = [] } = useWatchlist();
-  const addToWatchlist = useAddToWatchlist();
-  const removeFromWatchlist = useRemoveFromWatchlist();
+  const { mutate: toggle, isPending } = useWatchlistToggle();
 
-  const onWatchlist = watchlist.some(
-    (item) =>
-      item.id === instrumentId ||
-      item.symbol.toUpperCase() === symbol.toUpperCase(),
-  );
-  const pending =
-    addToWatchlist.isPending || removeFromWatchlist.isPending;
+  const onWatchlist = watchlist.some((item) => item.id === instrumentId);
 
   return (
     <button
@@ -41,15 +32,11 @@ export const WatchlistStarButton = ({
         onWatchlist ? "Remove from watchlist" : "Add to watchlist"
       }
       aria-pressed={onWatchlist}
-      disabled={pending}
+      disabled={isPending}
       onClick={(event) => {
         event.preventDefault();
         event.stopPropagation();
-        if (onWatchlist) {
-          removeFromWatchlist.mutate(instrumentId);
-          return;
-        }
-        addToWatchlist.mutate(instrumentId);
+        toggle({ instrumentId, onWatchlist });
       }}
     >
       {onWatchlist ? "★" : "☆"}
