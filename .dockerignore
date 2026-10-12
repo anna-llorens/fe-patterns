@@ -1,0 +1,14 @@
+**/node_modules
+**/dist
+.git
+.vite
+frontend/src
+frontend/public
+frontend/index.html
+frontend/vite.config.ts
+frontend/tsconfig*.json
+frontend/eslint.config.js
+*.md
+.env
+.env.*
+!.env.example

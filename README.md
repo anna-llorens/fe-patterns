@@ -28,13 +28,22 @@ yarn db:seed
 
 ## Dev
 
-Terminal 1 — API (port 3001):
+**API in Docker** (Postgres + backend on port 3001):
+
+```bash
+docker compose up -d --build
+yarn db:seed   # once, against Postgres on localhost:5433
+```
+
+Stop the local `yarn dev:backend` if it is running — both bind port 3001.
+
+**API on the host** (hot reload):
 
 ```bash
 yarn dev:backend
 ```
 
-Terminal 2 — UI (proxies `/api` to the backend):
+Terminal — UI (proxies `/api` to port 3001):
 
 ```bash
 yarn dev:frontend
@@ -49,7 +58,9 @@ yarn dev:frontend
 | `yarn build:contracts` | Compile `@fe-patterns/api-contracts` |
 | `yarn build` | Contracts, then frontend + backend |
 | `yarn lint` | ESLint (frontend) |
-| `yarn db:up` | Start Postgres (docker compose) |
+| `yarn db:up` | Start Postgres + backend (`docker compose up -d`) |
+| `docker compose up -d --build backend` | Rebuild and restart API container |
+| `docker compose logs -f backend` | Follow API logs (timestamps, requests) |
 | `yarn db:migrate` | Prisma migrate (backend workspace) |
 | `yarn db:seed` | Seed demo user, instruments, watchlist |
 | `yarn test:backend` | Backend HTTP contract tests |

@@ -15,5 +15,20 @@ services:
       timeout: 5s
       retries: 5
 
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://fe_patterns:fe_patterns@postgres:5432/fe_patterns
+      PORT: "3001"
+      DEFAULT_USER_EMAIL: demo@local.dev
+      MARKET_DATA_PROVIDER: mock
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   fe_patterns_pg:

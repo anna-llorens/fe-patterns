@@ -4,6 +4,7 @@ import { createMarketDataProvider } from "./market-data/index.js";
 import { createInstrumentRouter } from "./instruments/instrument.routes.js";
 import { createInstrumentService } from "./instruments/instrument.service.js";
 import { errorHandler } from "./middleware/errorHandler.js";
+import { requestLogger } from "./middleware/requestLogger.js";
 import { createWatchlistRouter } from "./watchlists/watchlist.routes.js";
 import { createWatchlistService } from "./watchlists/watchlist.service.js";
 
@@ -15,6 +16,7 @@ export function createApp() {
 
   app.use(cors());
   app.use(express.json());
+  app.use(requestLogger);
 
   app.use("/api/instruments", createInstrumentRouter(instrumentService));
   app.use("/api/watchlist", createWatchlistRouter(watchlistService));

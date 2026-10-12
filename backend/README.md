@@ -9,14 +9,25 @@ Express 5 API with Prisma + PostgreSQL. Application data lives in Postgres; quot
 
 ## Setup
 
+**Docker API + Postgres** (from repo root):
+
 ```bash
-# From repo root
-docker compose up -d
+docker compose up -d --build
+yarn db:seed   # once; uses Postgres on localhost:5433
+```
+
+**Local API** (hot reload):
+
+```bash
+docker compose up -d postgres
 cp backend/.env.example backend/.env
 yarn install
 yarn workspace backend db:migrate
 yarn workspace backend db:seed
+yarn dev:backend
 ```
+
+Do not run `yarn dev:backend` and the `backend` Compose service at the same time — both use port 3001.
 
 ## Scripts
 
