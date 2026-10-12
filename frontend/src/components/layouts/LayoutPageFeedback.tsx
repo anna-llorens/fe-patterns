@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
+
 type LayoutPageFeedbackProps = {
   variant?: "loading" | "error" | "empty";
   title?: string;
   message: string;
-  action?: React.ReactNode;
+  action?: ReactNode;
 };
 
 export function LayoutPageFeedback({

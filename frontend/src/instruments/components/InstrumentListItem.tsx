@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { appPaths } from "@/routes/paths";
 import type { InstrumentSummary } from "@/instruments/model/Instrument";
 import { InstrumentIcon } from "@/instruments/components/InstrumentIcon";
 import { WatchlistStarButton } from "@/components/WatchlistStarButton";
@@ -28,7 +29,7 @@ export const InstrumentListItem = ({
       }`}
     >
       <Link
-        to={`/instruments/${instrument.symbol}`}
+        to={appPaths.instrument(instrument.symbol)}
         className="instrument-list-item-link"
         onClick={onNavigate}
       >
@@ -55,10 +56,7 @@ export const InstrumentListItem = ({
           </span>
         </span>
       </Link>
-      <WatchlistStarButton
-        instrumentId={instrument.id}
-        symbol={instrument.symbol}
-      />
+      <WatchlistStarButton instrumentId={instrument.id} />
     </div>
   );
 };

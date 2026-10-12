@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import "@/css/App.css";
-import { AppRoutes } from "./routes";
+import { AppRoutes } from "@/routes";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   QueryClient,

@@ -4,7 +4,6 @@ import "@/css/instrument-list-item.css";
 
 type WatchlistStarButtonProps = {
   instrumentId: string;
-  symbol: string;
   /** Larger star for instrument detail header */
   variant?: "list" | "header";
 };

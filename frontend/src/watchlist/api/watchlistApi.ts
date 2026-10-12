@@ -1,13 +1,10 @@
 import {
+  addWatchlistInstrumentResponseSchema,
   instrumentListResponseSchema,
+  type AddWatchlistInstrumentResult,
   type InstrumentSummary,
 } from "@fe-patterns/api-contracts";
 import { urlFor } from "../../api/apiConfig";
-
-export type AddWatchlistInstrumentResult = {
-  ok: true;
-  alreadyExists?: true;
-};
 
 export async function getUserWatchlist(
   signal?: AbortSignal,
@@ -40,16 +37,7 @@ export async function addInstrumentToWatchlist(
   }
 
   const data: unknown = await response.json();
-  if (
-    typeof data !== "object" ||
-    data === null ||
-    !("ok" in data) ||
-    data.ok !== true
-  ) {
-    throw new Error("Invalid add-to-watchlist response");
-  }
-
-  return data as AddWatchlistInstrumentResult;
+  return addWatchlistInstrumentResponseSchema.parse(data);
 }
 
 export async function removeInstrumentFromWatchlist(

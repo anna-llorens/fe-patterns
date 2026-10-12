@@ -1,14 +1,7 @@
-function env(name: "API_URL"): string | undefined {
-  if (name === "API_URL") {
-    return import.meta.env.VITE_API_URL;
-  }
-  return undefined;
-}
+const apiBaseUrl = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
 
 const apiConfig = {
-  baseUrls: {
-    api: (env("API_URL") ?? "").replace(/\/$/, ""),
-  },
+  baseUrl: apiBaseUrl,
   endpoints: {
     instrument: "/api/instruments/:symbol",
     instruments: "/api/instruments",
@@ -39,7 +32,7 @@ export function urlFor<E extends ApiEndpoint>(
       path = path.replace(`:${key}`, encodeURIComponent(String(value)));
     }
   }
-  return `${apiConfig.baseUrls.api}${path}`;
+  return `${apiConfig.baseUrl}${path}`;
 }
 
 export default apiConfig;

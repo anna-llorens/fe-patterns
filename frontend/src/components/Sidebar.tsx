@@ -1,4 +1,5 @@
 import { AppNavLink } from "./NavLink";
+import { appPaths } from "@/routes/paths";
 import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
 
 export const Sidebar = () => {
@@ -13,11 +14,11 @@ export const Sidebar = () => {
         <span className="app-brand-name">StockTrack</span>
       </div>
       <nav className="app-nav" aria-label="Main">
-        <AppNavLink to="/" end title="Dashboard">
+        <AppNavLink to={appPaths.dashboard} end title="Dashboard">
           <span className="app-nav-label">Dashboard</span>
         </AppNavLink>
         <AppNavLink
-          to="/watchlist"
+          to={appPaths.watchlist}
           badge={watchlist.length}
           title="Watchlist"
         >

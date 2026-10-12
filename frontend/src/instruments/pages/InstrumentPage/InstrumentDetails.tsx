@@ -19,7 +19,6 @@ export function InstrumentDetails({ instrument }: InstrumentDetailsProps) {
         <div className="instrument-actions">
           <WatchlistStarButton
             instrumentId={instrument.id}
-            symbol={instrument.symbol}
             variant="header"
           />
         </div>

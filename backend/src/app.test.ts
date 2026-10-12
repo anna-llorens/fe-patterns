@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { after, before, describe, it } from "node:test";
 import {
+  addWatchlistInstrumentResponseSchema,
   instrumentDetailSchema,
   instrumentListResponseSchema,
 } from "@fe-patterns/api-contracts";
@@ -62,11 +63,17 @@ describe("HTTP API", { skip: !hasDatabase && "DATABASE_URL not set" }, () => {
       .post("/api/watchlist/instruments")
       .send({ instrumentId: jpm.id });
     assert.ok(add.status === 201 || add.status === 200);
+    assert.doesNotThrow(() =>
+      addWatchlistInstrumentResponseSchema.parse(add.body),
+    );
 
     const duplicate = await request(app)
       .post("/api/watchlist/instruments")
       .send({ instrumentId: jpm.id });
     assert.equal(duplicate.status, 200);
+    assert.doesNotThrow(() =>
+      addWatchlistInstrumentResponseSchema.parse(duplicate.body),
+    );
     assert.equal(duplicate.body.alreadyExists, true);
 
     const remove = await request(app).delete(
