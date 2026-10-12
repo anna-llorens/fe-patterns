@@ -6,7 +6,7 @@ import { useInstruments } from "@/instruments/hooks/useInstruments";
 
 export const DashboardPage = () => {
   const {
-    data: instruments = [],
+    data: instruments,
     isPending,
     error,
     refetch,
@@ -18,9 +18,10 @@ export const DashboardPage = () => {
         <QueryContent
           isPending={isPending}
           error={error}
+          hasData={instruments !== undefined && instruments.length > 0}
           onRetry={() => refetch()}
         >
-          <InstrumentList instruments={instruments} showSector />
+          <InstrumentList instruments={instruments ?? []} showSector />
         </QueryContent>
       </LayoutPageSection>
     </LayoutPage>

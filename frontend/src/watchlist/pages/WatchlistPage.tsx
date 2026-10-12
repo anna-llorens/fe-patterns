@@ -6,7 +6,7 @@ import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
 
 export const WatchlistPage = () => {
   const {
-    data: instruments = [],
+    data: instruments,
     isPending,
     error,
     refetch,
@@ -17,15 +17,16 @@ export const WatchlistPage = () => {
       <QueryContent
         isPending={isPending}
         error={error}
+        hasData={instruments !== undefined}
         onRetry={() => refetch()}
       >
-        {instruments.length === 0 ? (
+        {(instruments ?? []).length === 0 ? (
           <LayoutPageFeedback
             variant="empty"
             message="No stocks yet. Use the star in search or on an instrument page to add one."
           />
         ) : (
-          <InstrumentList instruments={instruments} />
+          <InstrumentList instruments={instruments ?? []} />
         )}
       </QueryContent>
     </LayoutPage>

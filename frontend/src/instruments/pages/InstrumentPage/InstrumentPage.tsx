@@ -20,6 +20,7 @@ export const InstrumentPage = () => {
         <QueryContent
           isPending={isPending}
           error={error}
+          hasData={instrument !== undefined}
           onRetry={() => refetch()}
         >
           {!instrument ? (
