@@ -1,4 +1,4 @@
-import { LayoutPage } from "@/components/LayoutPage";
+import { LayoutPage } from "@/components/layouts/LayoutPage";
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
 import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
 

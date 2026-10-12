@@ -1,5 +1,6 @@
 import { InstrumentListItem } from "@/instruments/components/InstrumentListItem";
-import { LayoutPage, LayoutPageSection } from "@/components/LayoutPage";
+import { LayoutPage } from "@/components/layouts/LayoutPage";
+import { LayoutPageSection } from "@/components/layouts/LayoutPageSection";
 import { useInstruments } from "@/instruments/hooks/useInstruments";
 
 export const DashboardPage = () => {

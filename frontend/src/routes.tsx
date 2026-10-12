@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { AppLayout } from "./layouts/AppLayout";
+import { AppLayout } from "@/components/layouts/AppLayout";
 import { DashboardPage } from "./pages/DashboardPage";
-import { InstrumentPage } from "./pages/InstrumentPage";
+import { InstrumentPage } from "@/instruments/pages/InstrumentPage";
 import { WatchlistPage } from "./pages/WatchlistPage";
 
 export function AppRoutes() {
