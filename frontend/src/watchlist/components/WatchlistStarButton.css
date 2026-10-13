@@ -1,0 +1,40 @@
+.watchlist-star-button {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.watchlist-star-button:hover {
+  transform: none;
+  color: var(--text);
+}
+
+.watchlist-star-button--on-watchlist {
+  color: #fbbf24;
+}
+
+.watchlist-star-button--header {
+  width: 40px;
+  height: 40px;
+}
+
+.instrument-page .watchlist-star-button--header {
+  background: var(--ip-surface-soft);
+  color: var(--ip-muted);
+}
+
+.instrument-page .watchlist-star-button--header:hover {
+  color: var(--ip-text);
+}
+
+.instrument-page .watchlist-star-button--header.watchlist-star-button--on-watchlist,
+.instrument-page
+  .watchlist-star-button--header.watchlist-star-button--on-watchlist:hover {
+  color: #fbbf24;
+}

@@ -52,26 +52,11 @@ export function createWatchlistService(marketData: MarketDataProvider) {
       if (!instrument) {
         throw new WatchlistError("Instrument not found", 404);
       }
-      const exists = await watchlistRepository.hasItem(
-        watchlist.id,
-        instrumentId,
-      );
-      if (exists) {
-        return { created: false };
-      }
-      await watchlistRepository.addItem(watchlist.id, instrumentId);
-      return { created: true };
+      return watchlistRepository.addItem(watchlist.id, instrumentId);
     },
 
     async removeInstrument(instrumentId: string): Promise<void> {
       const watchlist = await getWatchlistForDefaultUser();
-      const exists = await watchlistRepository.hasItem(
-        watchlist.id,
-        instrumentId,
-      );
-      if (!exists) {
-        return;
-      }
       await watchlistRepository.removeItem(watchlist.id, instrumentId);
     },
   };

@@ -65,46 +65,6 @@
   font-weight: 600;
 }
 
-.instrument-list-item-star {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border-radius: 10px;
-  background: var(--surface-soft);
-  color: var(--text-muted);
-  font-size: 18px;
-  line-height: 1;
-}
-
-.instrument-list-item-star:hover {
-  transform: none;
-  color: var(--text);
-}
-
-.instrument-list-item-star.active {
-  color: #fbbf24;
-}
-
-.instrument-list-item-star--header {
-  width: 40px;
-  height: 40px;
-}
-
-.instrument-page .instrument-list-item-star--header {
-  background: var(--ip-surface-soft);
-  color: var(--ip-muted);
-}
-
-.instrument-page .instrument-list-item-star--header:hover {
-  color: var(--ip-text);
-}
-
-.instrument-page .instrument-list-item-star--header.active,
-.instrument-page .instrument-list-item-star--header.active:hover {
-  color: #fbbf24;
-}
-
 .instrument-list .instrument-list-item {
   border-bottom: 1px solid var(--border);
 }

@@ -1,4 +1,4 @@
-import { WatchlistStarButton } from "@/components/WatchlistStarButton";
+import { WatchlistStarButton } from "@/watchlist/components/WatchlistStarButton";
 import { InstrumentIdentity } from "@/instruments/components/InstrumentIdentity";
 import { PriceBlock } from "@/instruments/components/PriceBlock";
 import { PriceChart } from "@/instruments/components/PriceChart";

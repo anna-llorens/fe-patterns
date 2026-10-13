@@ -20,29 +20,23 @@ export const watchlistRepository = {
     });
   },
 
-  addItem(watchlistId: string, instrumentId: string): Promise<WatchlistItem> {
-    return prisma.watchlistItem.create({
-      data: { watchlistId, instrumentId },
-    });
+  addItem(
+    watchlistId: string,
+    instrumentId: string,
+  ): Promise<{ created: boolean }> {
+    return prisma.watchlistItem
+      .createMany({
+        data: [{ watchlistId, instrumentId }],
+        skipDuplicates: true,
+      })
+      .then((result) => ({ created: result.count > 0 }));
   },
 
   removeItem(watchlistId: string, instrumentId: string): Promise<void> {
     return prisma.watchlistItem
-      .delete({
-        where: {
-          watchlistId_instrumentId: { watchlistId, instrumentId },
-        },
+      .deleteMany({
+        where: { watchlistId, instrumentId },
       })
       .then(() => undefined);
-  },
-
-  hasItem(watchlistId: string, instrumentId: string): Promise<boolean> {
-    return prisma.watchlistItem
-      .findUnique({
-        where: {
-          watchlistId_instrumentId: { watchlistId, instrumentId },
-        },
-      })
-      .then((item) => item !== null);
   },
 };

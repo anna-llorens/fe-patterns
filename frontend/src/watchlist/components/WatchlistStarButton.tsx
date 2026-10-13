@@ -1,6 +1,6 @@
 import { useWatchlistToggle } from "@/watchlist/hooks/useWatchlistToggle";
 import { useWatchlist } from "@/watchlist/hooks/useWatchlist";
-import "@/instruments/components/InstrumentListItem.css";
+import "./WatchlistStarButton.css";
 
 type WatchlistStarButtonProps = {
   instrumentId: string;
@@ -21,9 +21,9 @@ export const WatchlistStarButton = ({
     <button
       type="button"
       className={[
-        "instrument-list-item-star",
-        variant === "header" ? "instrument-list-item-star--header" : "",
-        onWatchlist ? "active" : "",
+        "watchlist-star-button",
+        variant === "header" ? "watchlist-star-button--header" : "",
+        onWatchlist ? "watchlist-star-button--on-watchlist" : "",
       ]
         .filter(Boolean)
         .join(" ")}
